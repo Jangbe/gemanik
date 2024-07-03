@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gemanik_Official</title>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&family=Quicksand:wght@400;700&family=Ubuntu:wght@300&display=swap"
+    rel="stylesheet" />
+
+  <!-- feather icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- my style -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --primary: #f3e9d7;
+      --bg: #000000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      text-decoration: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--bg);
+      color: #f3e9d7;
+    }
+
+    /* Navbar */
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 7%;
+      background-color: rgba(222, 65, 123, 0.82);
+      border-bottom: 1px solid #000000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+    }
+
+    .navbar .navbar-logo img {
+      align-items: center;
+    }
+
+    .navbar .navbar-nav a {
+      color: #000000;
+      display: inline-block;
+      font-size: 1.5rem;
+      margin: 0 1rem;
+    }
+
+    .navbar .navbar-nav a:hover {
+      color: #fff;
+    }
+
+    .navbar .navbar-nav a::after {
+      content: "";
+      display: block;
+      border-bottom: 0.5rem;
+      border-bottom: 0.1rem solid #591d0a;
+      transform: scaleX(0);
+      transition: 0.2s linear;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+      transform: scaleX(0.5);
+    }
+
+    .navbar .navbar-extra a {
+      color: #000000;
+      margin: 0 0.5rem;
+    }
+
+    .navbar .navbar-extra a:hover {
+      color: var(--primary);
+    }
+
+    #hamburger-menu {
+      display: none;
+    }
+
+    /* Navbar search form */
+    .navbar .search-form {
+      position: absolute;
+      top: 100%;
+      right: 7%;
+      background-color: #fff;
+      width: 50rem;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: 0.3s;
+    }
+
+    .navbar .search-form.active {
+      transform: scaleY(1);
+    }
+
+    .navbar .search-form input {
+      height: 100%;
+      width: 100%;
+      font-size: 1.6rem;
+      color: var(--bg);
+      padding: 1rem;
+    }
+
+    .navbar .search-form label {
+      cursor: pointer;
+      font-size: 2rem;
+      margin-right: 1.5rem;
+      color: var(--bg);
+    }
+
+    .content .background {
+      background-color: #591d0a transparent;
+    }
+
+    /* Shopping Cart */
+    .shopping-cart {
+      position: absolute;
+      overflow: scroll;
+      top: 100%;
+      right: -100%;
+      height: 100vh;
+      width: 35rem;
+      padding: 0 1.5rem;
+      background-color: #f3e9d7;
+      color: var(--bg);
+      transition: 0.3s;
+    }
+
+    .shopping-cart.active {
+      right: 0;
+    }
+
+    .shopping-cart .cart-item {
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed #666;
+      position: relative;
+    }
+
+    .shopping-cart img {
+      height: 6rem;
+      border-radius: 50%;
+    }
+
+    .shopping-cart h3 {
+      font-size: 1.6rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .shopping-cart .item-price {
+      font-size: 1.2rem;
+    }
+
+    .shopping-cart .remove-item {
+      position: absolute;
+      right: 1rem;
+      cursor: pointer;
+    }
+
+    .shopping-cart .remove-item:hover {
+      color: var(--primary);
+    }
+
+    /* hero section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-image: url("gantungan\ kunci.jpeg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero ::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 30%;
+    }
+
+    .hero .content {
+      padding: 1.4rem;
+      max-width: 60rem;
+    }
+
+    .hero .content h1 {
+      font-size: 5em;
+      color: #000000;
+      text-shadow: 1px 1px 3px #F64988;
+      line-height: 1.2;
+    }
+
+    .hero .content h1 span {
+      color: #F64988;
+      text-shadow: 1px 1px 3px #000000;
+    }
+
+    .hero .content p {
+      color: #fff;
+      text-shadow: 1px 1px 3px #000000;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      line-height: 1.4;
+      font-weight: 300;
+    }
+
+    .hero .content .cta {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 1rem 4rem;
+      font-size: 1.4rem;
+      color: #000000;
+      background-color: #F64988;
+      border-radius: 0.5rem;
+      box-shadow: 1px 1px 3px #000000;
+    }
+
+    /* about section */
+    .about,
+    .menu,
+    .contact {
+      padding: 8rem 7% 1.4rem;
+    }
+
+    .about h2,
+    .menu h2,
+    .contact h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .about h2 span,
+    .menu h2 span,
+    .contact h2 span {
+      color: #F64988;
+    }
+
+    .about .row {
+      display: flex;
+      background-color: #F64988;
+      box-shadow: 0 4px 25px 0 #fff;
+      border-radius: 30px;
+      padding: 40px;
+      margin-top: 20px;
+    }
+
+    .about .row .about-img {
+      padding: 8rem 3% 1.4rem;
+      flex: 45rem;
+    }
+
+    .about .row .about-img img {
+      width: 100%;
+      border-radius: 50px;
+    }
+
+    .about .row .content {
+      flex: 1 1 35rem;
+      padding: 0 1rem;
+    }
+
+    .about .row .content h3 {
+      border-left-color: #f3e9d7;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .about .row .content p {
+      margin-bottom: 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* menu section */
+    .menu h2 {
+      margin-bottom: 1rem;
+    }
+
+    .menu p {
+      text-align: center;
+      max-width: 50rem;
+      margin: auto;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .menu .row {
+      flex-wrap: wrap;
+      margin-top: 5rem;
+      justify-content: center;
+    }
+
+    .menu .row .menu-card {
+      text-align: center;
+      padding-bottom: 1rem;
+      border: 2.5px solid #000000;
+      box-shadow: 0 4px 25px 0 #fff;
+      background-color: #F64988;
+      border-radius: 30px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .menu .row .menu-card img {
+      border-radius: 50%;
+      width: 80%;
+    }
+
+    .menu .row .menu-card .menu-card-price {
+      color: #591d0a;
+    }
+
+    .menu .row .menu-card .menu-card-title {
+      margin-top: 1rem auto 0.5rem;
+      color: #591d0a;
+    }
+
+    /* product section */
+    .products {
+      padding: 8rem 7% 1.4rem;
+    }
+
+    .products h2 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 3rem;
+    }
+
+    .products h2 span {
+      color: #F64988;
+    }
+
+    .products p {
+      text-align: center;
+      max-width: 35rem;
+      margin: auto;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .products .row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .products .product-card {
+      text-align: center;
+      border: 2.5px solid #F64988;
+      border-radius: 4%;
+      box-shadow: 0 4px 25px 0 #fff;
+      padding: 1rem;
+    }
+
+    .products .product-icons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .products .product-icons a {
+      width: 4rem;
+      height: 4rem;
+      color: #f3e9d7;
+      margin: 0.3rem;
+      border: 1px solid #F64988;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .products .product-icons a:hover {
+      background-color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .products .product-image {
+      padding: 1rem 0;
+    }
+
+    .products .product-image img {
+      height: 30rem;
+      border-radius: 15%;
+    }
+
+    .products .product-content h3 {
+      font-size: 1.7rem;
+    }
+
+    .products .product-stars {
+      font-size: 1.7rem;
+      padding: 0.8rem;
+      color: #ffde59;
+    }
+
+    .products .product-stars .star-full {
+      fill: #ffde59;
+    }
+
+    .products .product-price,
+    .modala .product-price {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .products .product-price span,
+    .modala .product-price span {
+      text-decoration: line-through;
+      font-weight: lighter;
+      font-size: 1rem;
+    }
+
+    /* contact section */
+    .contact p {
+      text-align: center;
+      max-width: 80rem;
+      margin: auto;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .contact .row {
+      display: flex;
+      margin-top: 2rem;
+      border-radius: 4%;
+      background-color: #F64988;
+      box-shadow: 0 4px 25px 0 #fff;
+    }
+
+    .contact .row .map {
+      flex: 1 1 45rem;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .contact .row form {
+      flex: 1 1 45rem;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .contact .row form .input-group {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+      background-color: #000000;
+      border: 1px solid #fff;
+      padding: 2rem;
+    }
+
+    .contact .row form .input-group input {
+      margin-left: 10%;
+      width: 80%;
+      padding: 2rem;
+      font-size: 1.7rem;
+      border: 1px solid #fff;
+      background-color: #F64988;
+      color: #ffff;
+    }
+
+    .contact .row form .btn {
+      margin-top: 3rem;
+      display: inline-block;
+      padding: 1rem 3rem;
+      font-size: 1.3rem;
+      color: #f3e9d7;
+      border: 1px solid #fff;
+      background-color: #000000;
+      cursor: pointer;
+    }
+
+    /* footer */
+    footer {
+      background-color: #F64988;
+      text-align: center;
+      padding: 1rem 0 3rem;
+      margin-top: 3rem;
+    }
+
+    footer .socials {
+      padding: 1rem 0;
+    }
+
+    footer .socials a {
+      color: #591d0a;
+      margin: 1rem;
+    }
+
+    footer .socials a:hover,
+    footer .links a:hover {
+      color: var(--bg);
+    }
+
+    footer .links {
+      margin-bottom: 1.4rem;
+    }
+
+    footer .links a {
+      color: #591d0a;
+      padding: 0.7rem 1rem;
+    }
+
+    footer .credit {
+      color: #f3e9d7;
+      font-size: 0.8rem;
+    }
+
+    footer .credit a {
+      color: #591d0a;
+      font-weight: 700;
+    }
+
+    /* modal box */
+    /* item detail */
+    .modala {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-container {
+      position: relative;
+      background-color: #f3e9d7;
+      color: var(--bg);
+      margin: 5% auto;
+      padding: 1.2rem;
+      border: 1px solid #f3e9d7;
+      width: 80%;
+      animation: animateModal 0.5s;
+    }
+
+    /* Modal Animation */
+    @keyframes animateModal {
+      from {
+        top: -300px;
+        opacity: 0;
+      }
+
+      to {
+        top: 0;
+        opacity: 1;
+      }
+    }
+
+    .modal-container .close-icon {
+      position: absolute;
+      right: 1rem;
+    }
+
+    .modal-content {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
+    .modal-content img {
+      height: 20rem;
+      margin-right: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .modal-content p {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .product-stars {
+      font-size: 1.7rem;
+      padding: 0.8rem;
+      color: #bb6454;
+    }
+
+    .product-stars .star-full {
+      fill: #bb6454;
+    }
+
+    .modalb .product-price {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .modal-content a {
+      display: flex;
+      gap: 1rem;
+      width: 12rem;
+      background-color: var(--primary);
+      color: #591d0a;
+      margin-top: 1rem;
+      padding: 1rem 1.5rem;
+    }
+
+    /* media queries */
+
+    /* laptop */
+    @media (max-width: 1366px) {
+      html {
+        font-size: 75%;
+      }
+    }
+
+    /* tablet */
+    @media (max-width: 758px) {
+      html {
+        font-size: 62.5%;
+      }
+
+      #hamburger-menu {
+        display: inline-block;
+      }
+
+      .navbar .navbar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #f3e9d7;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+      }
+
+      .navbar .navbar-nav.active {
+        right: 0;
+      }
+
+      .navbar .navbar-nav a {
+        color: var(--bg);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+      }
+
+      .navbar .navbar-nav a::after {
+        transform-origin: 0 0;
+      }
+    }
+
+    .navbar .navbar-nav a:hover::after {
+      transform: scaleX(0.2);
+    }
+
+    .about .row {
+      flex-wrap: wrap;
+    }
+
+    .about .row .about-img img {
+      height: 30rem;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .about .row .content h3 {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+
+    .about .row .content p {
+      font-size: 1.6rem;
+    }
+
+    .menu p {
+      font-size: 1.4rem;
+    }
+
+    .contact .row {
+      flex-wrap: wrap;
+
+      .contact .row map {
+        height: 30rem;
+      }
+
+      .contact .row form {
+        padding-top: 0;
+      }
+    }
+
+    .modal-content {
+      flex-wrap: wrap;
+    }
+
+    /* mobile phone */
+    @media (max-width: 450px) {
+      html {
+        font-size: 55%;
+      }
+    }
+
+    iframe {
+      margin-top: 2%;
+      margin-bottom: 2%;
+      margin-left: 2%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar start -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo"><img src="logo gemanik.png" alt="gemanik official" width="80" height="80" /></a>
+    <div class="navbar-nav">
+      <a href="#home">Beranda</a>
+      <a href="#about">Tentang</a>
+      <a href="#menu">Menu</a>
+      <a href="#products">Produk</a>
+      <a href="#contact">Kontak</a>
+    </div>
+    <div class="navbar-extra">
+      <a href="#" id="search-button"><i data-feather="search"></i></a>
+      <a href="https://wa.me//6283103117832?text=Halo Kak, saya mau tanya.%20" id="shopping-cart-button">
+        <i data-feather="shopping-cart">
+
+        </i>
+      </a>
+      <a href="https://wa.me//6283103117832?text=Halo Kak, saya mau tanya.%20" id="hamburger-menu"><i
+          data-feather="menu"></i></a>
+    </div>
+
+    <!-- Search Form start -->
+    <div class="search-form">
+      <input type="search" id="search-box" placeholder="search here..." />
+      <label for="search-box"><i data-feather="search"></i></label>
+    </div>
+    <!-- Search Form end -->
+
+    <!-- Shopping Cart start -->
+    <div class="shopping-cart">
+      <div class="cart-item">
+        <img src="gelang small.jpeg" alt="Product 1" />
+        <div class="item-detail">
+          <h3>Bracelet Plain</h3>
+          <div class="item-price">IDR 4K</div>
+        </div>
+        <i data-feather="trash-2" class="remove-item"></i>
+      </div>
+      <div class="cart-item">
+        <img src="gelang big.jpeg" alt="Product 1" />
+        <div class="item-detail">
+          <h3>Bracelet Motif</h3>
+          <div class="item-price">IDR 5K</div>
+        </div>
+        <i data-feather="trash-2" class="remove-item"></i>
+      </div>
+      <div class="cart-item">
+        <img src="gelang couple2.jpeg" alt="Product 1" />
+        <div class="item-detail">
+          <h3>Bracelet Couple</h3>
+          <div class="item-price">IDR 4K</div>
+        </div>
+        <i data-feather="trash-2" class="remove-item"></i>
+      </div>
+      <div class="cart-item">
+        <img src="gantungan kunci.jpeg" alt="Product 1" />
+        <div class="item-detail">
+          <h3>Beads Key Strap</h3>
+          <div class="item-price">IDR 5K</div>
+        </div>
+        <i data-feather="trash-2" class="remove-item"></i>
+      </div>
+      <div class="cart-item">
+        <img src="gantungan hp.jpeg" alt="Product 1" />
+        <div class="item-detail">
+          <h3>Beads Phone Strap</h3>
+          <div class="item-price">IDR 5K</div>
+        </div>
+        <i data-feather="trash-2" class="remove-item"></i>
+      </div>
+      <div class="cart-item">
+        <img src="pc.jpeg" alt="Product 1" />
+        <div class="item-detail">
+          <h3>Photo Polaroid</h3>
+          <div class="item-price">IDR 2K</div>
+        </div>
+        <i data-feather="trash-2" class="remove-item"></i>
+      </div>
+    </div>
+    <!-- Shopping Cart end -->
+  </nav>
+  <!-- navbar end -->
+
+  <!-- hero section start -->
+  <section class="hero" id="home">
+    <main class="content">
+      <h1 style="text-align: center;">Generasi Unik <span>Estetik</span></h1>
+      <p style="text-align: justify;"><b>
+          Gemanik_official adalah usaha kecil yang menyediakan berbagai macam aksesoris dari manik-manik yang berada di
+          Kota Salatiga, Jawa Tengah.
+          Filosofi atau dari nama Gemanik_official yaitu manik-manik yang gemas, unik, dan estetik. <br>
+          Selain itu juga gemanik memiliki makna gema yang memiliki arti pantulan dan manik yaitu kerajinan
+          yang dapat dibuat sesuai kreatifitas, sehingga dapat di katakan bahwa gemanik adalah usaha yang berfokus pada
+          pembuatan kerajinan aksesoris manik manik yang dibuat sesuai kretifitas sehingga bisa menjadi pantulan atau
+          cerminan untuk usaha-usaha yang terinspirasi.
+      </p>
+      <a href="https://wa.me//6283103117832?text=Halo Kak, saya mau tanya.%20" class="cta">Beli Sekarang</a>
+    </main>
+  </section>
+  <!-- hero section end -->
+
+  <!-- about section start -->
+  <section id="about" class="about">
+    <h2>Tentang <span>Kami</span></h2>
+    <div class="row">
+      <div class="about-img">
+        <img src="couple try on.jpeg" alt="Tentang Kami" />
+      </div>
+      <div class="content">
+        <h3>Kenapa harus Gemanik_Official?</h3>
+        <p style="text-align: justify
+          ;">
+          Karena Gemanik_Official sebagai usaha kecil yang menyediakan berbagai macam aksesoris untuk melengkapi gaya
+          fashion sehingga lebih menarik dari luar dan membuat tampilan menjadi lebih percaya diri dengan memanfaatkan
+          strategi pemasaran digital untuk meningkatkan popularitas di dunia
+          digital.
+        </p>
+        <p style="text-align: justify;" class="background">
+          Gemanik_Official juga berharap dapat menjalin hubungan jangka panjang
+          dengan pelanggan, dengan cara menawarkan produk berkualitas, konten
+          yang menarik, dan menghadirkan penawaran khusus untuk meningkatkan
+          loyalitas dan tingkat konversi.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- about section end -->
+
+  <!-- menu section start -->
+  <section id="menu" class="menu">
+    <h2><span>Produk</span> Kami</h2>
+    <p>
+      Usaha Gemanik_Official merekomendasikan aksesoris yang membuat fashion menjadi tidak monoton dan membuat diri
+      menjadi lebih percaya diri seperti aksesoris yang dibawah ini :
+    </p>
+    <div class="row">
+      <div class="menu-card">
+        <div class="menu-card">
+          <img src="gelang small.jpeg" alt="bracelet plain" class="menu-card-img" />
+          <h3 class="menu-card-title">- Bracelet Plain -</h3>
+          <p class="menu-card-price">Rp 4500</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card">
+          <img src="gelang big.jpeg" alt="bracelet motif" class="menu-card-img" />
+          <h3 class="menu-card-title">- Bracelet Motif -</h3>
+          <p class="menu-card-price">Rp 5.000</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card">
+          <img src="gelang couple2.jpeg" alt="bracelet couple" class="menu-card-img" />
+          <h3 class="menu-card-title">- Bracelet Couple -</h3>
+          <p class="menu-card-price">Rp 4.000</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card">
+          <img src="gantungan hp.jpeg" alt="phone strap" class="menu-card-img" />
+          <h3 class="menu-card-title">- Beads Phone Strap -</h3>
+          <p class="menu-card-price">Rp 5.000</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card">
+          <img src="gantungan kunci.jpeg" alt="beads key strap" class="menu-card-img" />
+          <h3 class="menu-card-title">- Beads Key Strap -</h3>
+          <p class="menu-card-price">Rp 6.000</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card">
+          <img src="pc.jpeg" alt="pc" class="menu-card-img" />
+          <h3 class="menu-card-title">- Photo Polaroid -</h3>
+          <p class="menu-card-price">Rp 2.000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- menu section end-->
+
+  <!-- products section start -->
+  <section class="products" id="products">
+    <h2>Produk Unggulan <span>Kami</span></h2>
+    <p>
+      Selain aksesoris yang kami rekomendasikan diatas, kami juga menawarkan aksesoris
+      unggulan yang sudah disetujui para pelanggan melalui riset yang dilakukan.
+    </p>
+    <div class="row">
+      <div class="product-card">
+        <div class="product-icons">
+          <a href="https://wa.me//6283103117832?text=Halo Kak, saya mau tanya.%20"><i
+              data-feather="shopping-cart"></i></a>
+          <a href="#" class="item-detail-button"><i data-feather="eye"></i></a>
+        </div>
+        <div class="product-image">
+          <img src="gelang big.jpeg" alt="Product 1" />
+        </div>
+        <div class="product-content">
+          <h3>BRACELET MOTIF</h3>
+          <div class="product-stars">
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+          </div>
+          <div class="product-price">Rp 5.000 <span>Rp 7.000</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- products section end -->
+
+  <!-- contact section start-->
+  <section id="contact" class="contact">
+    <h2><span>Kontak</span> Kami</h2>
+    <p>
+      Jika tertarik dengan produk aksesoris kami, segera pesan melalui tata cara yang
+      tertera dibawah ini.
+    </p>
+    <div class="row">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.0897323607883!2d110.5086755!3d-7.343820099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a79ce093f243d%3A0xc887cecb0f25b391!2sJl.%20Argor umekso%20No.7%2C%20Ledok%2C%20Kec.%20Argomulyo%2C%20Kota%20Salatiga%2C%20Jawa%20Tengah%2050732!5e0!3m2!1sid!2sid!4v1715156628856!5m2!1sid!2sid"
+        width="400" height="800" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <form action="">
+        <div class="input-group">
+          <i data-feather="user"></i>
+          <input type="text" placeholder="Nama" />
+        </div>
+        <div class="input-group">
+          <i data-feather="mail"></i>
+          <input type="text" placeholder="Email" />
+        </div>
+        <div class="input-group">
+          <i data-feather="phone"></i>
+          <input type="text" placeholder="No.Hp" />
+        </div>
+        <button type="submit" class="btn">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+  <!-- contact section end -->
+
+  <!-- footer start -->
+  <footer>
+    <div class="socials">
+      <a
+        href="https://www.instagram.com/gemanik_offc?igsh=b3FtaXN1ZzhuMzQ4?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+          data-feather="instagram"></i></a>
+      <a href="https://wa.me//6283103117832?text=hallo gemanik_official,%20" + window.hasiljawab><i
+          data-feather="phone"></i></a>
+      <a href="https://www.facebook.com/people/Gemanik-Offc/61560387732094/?mibextid=ZbWKwL"><i
+          data-feather="facebook"></i></a>
+    </div>
+
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang</a>
+      <a href="#menu">Menu</a>
+      <a href="#products">Produk</a>
+      <a href="#contact">Kontak</a>
+    </div>
+
+    <div class="credit">
+      <p>Created by <a href="">Gemanik_Official</a>. | &copy; 2024.</p>
+    </div>
+  </footer>
+  <!-- footer end -->
+
+  <!-- modal box item detail start -->
+  <div class="modala" id="item-detail-a">
+    <div class="modal-container">
+      <a href="https://wa.me//6283103117832?text=Halo Kak, saya mau tanya.%20" class="close-icon"><i
+          data-feather="x"></i></a>
+      <div class="modal-content">
+        <img src="gelang big.jpeg" alt="bracelet motif" />
+        <div class="product-content">
+          <h3>Bracelet Motif</h3>
+          <p>
+            Produk aksesoris gelang motif atau yang kami namakan bracelet motif ini merupakan produk yang berbeda dari
+            gelang yang lainnya karena pelanggan bisa request untuk charm yang menjadi hiasan pada gelang ini, sehingga
+            Gemanik_Official bisa menamakan produkini menjadi gelang motif atau Bracelet Motif.
+          </p>
+          <div class="product-stars">
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+            <i data-feather="star" class="star-full"></i>
+          </div>
+          <div class="product-price">IDR 5K <span>7K</span></div>
+          <a href="https://wa.me//6283103117832?text=Halo Kak, saya mau order produk bracelet motif.%20"><i
+              data-feather="shopping-cart"></i> <span>add to cart</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal box item detail end -->
+
+  <!-- feather icons -->
+  <script>
+    feather.replace();
+  </script>
+
+  <!-- my javascript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
